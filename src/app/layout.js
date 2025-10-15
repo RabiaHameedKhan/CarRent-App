@@ -1,15 +1,19 @@
 import './globals.css';
+import Navbar from './Components/navbar';
+import Footer from './Components/footer';
 
 export const metadata = {
-  title: 'My Car Project',
-  description: 'A car rental web app built with Next.js',
+  title: 'Rent-A-Car',
+  description: 'A modern car rental web app built with Next.js',
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="min-h-screen bg-gray-100 text-gray-900">
-        {children}
+      <body className="bg-[#111] text-white">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );
