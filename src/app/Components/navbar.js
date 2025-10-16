@@ -1,95 +1,82 @@
-'use client';
+"use client";
+import Link from "next/link";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-
-export default function Navbar() {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Cars', href: '/cars' },
-    { name: 'About', href: '/about' },
-    { name: 'Contact', href: '/contact' },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Cars", href: "/cars" },
+    { name: "Login", href: "/login" },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-black/80 backdrop-blur-md shadow-md'
-          : 'bg-transparent'
-      }`}
+      style={{ backgroundColor: "#1C1C1E" }}
+      className="text-white shadow-lg sticky top-0 z-50 border-b border-[#E63946]/30 backdrop-blur-md"
     >
-      <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-        {/* Logo + Title */}
-        <div className="flex items-center space-x-3">
-          <Image
-            src="/car-logo.png"
-            alt="Car Logo"
-            width={40}
-            height={40}
-            priority
-          />
-          <h1 className="text-2xl font-extrabold text-red-500 tracking-wide">
-            Rent-A-Car
-          </h1>
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Brand */}
+        <Link
+          href="/"
+          className="text-3xl font-extrabold tracking-wide"
+          style={{ color: "#E63946" }}
+        >
+          Rent<span className="text-gray-200">-A-Car</span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex space-x-10">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-lg font-semibold transition-all duration-300"
+              style={{ color: "#D1D5DB" }}
+              onMouseEnter={(e) => (e.target.style.color = "#E63946")}
+              onMouseLeave={(e) => (e.target.style.color = "#D1D5DB")}
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
-        {/* Desktop Navlinks */}
-        <ul className="hidden md:flex space-x-10 text-lg font-medium">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className="hover:text-red-400 transition-colors duration-200"
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        {/* Hamburger button (visible on mobile only) */}
+        {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden focus:outline-none"
         >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+          {isOpen ? (
+            <X className="w-8 h-8 text-[#E63946]" />
+          ) : (
+            <Menu className="w-8 h-8 text-[#E63946]" />
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu (shows when hamburger clicked) */}
-      <div
-        className={`md:hidden bg-black/90 backdrop-blur-md overflow-hidden transition-all duration-300 ${
-          isOpen ? 'max-h-60 py-4' : 'max-h-0'
-        }`}
-      >
-        <ul className="flex flex-col items-center space-y-4 text-lg font-medium">
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div
+          style={{ backgroundColor: "#2C2C2E" }}
+          className="md:hidden py-6 space-y-4 text-center border-t border-gray-700"
+        >
           {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link
-                href={link.href}
-                className="block hover:text-red-400 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </Link>
-            </li>
+            <Link
+              key={link.name}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className="block text-lg font-medium text-gray-300 hover:text-[#E63946] transition-all"
+            >
+              {link.name}
+            </Link>
           ))}
-        </ul>
-      </div>
+        </div>
+      )}
     </nav>
   );
-}
+};
+
+export default Navbar;
