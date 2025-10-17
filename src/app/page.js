@@ -1,10 +1,13 @@
 "use client";
 import Link from "next/link";
 
+
+
+
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero secction */}
       <section
         className="relative h-[90vh] flex items-center justify-center text-center text-white overflow-hidden"
       >
@@ -13,7 +16,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/hero-bg.jpg')",
-            filter: "brightness(0.45)", // dark overlay for better text visibility
+            filter: "brightness(0.45)", 
           }}
         ></div>
 
@@ -25,14 +28,14 @@ export default function Home() {
           <p className="text-lg sm:text-xl text-gray-200 max-w-2xl mx-auto mb-8 animate-slideUp delay-200">
             Experience luxury, comfort, and style — wherever your journey takes you.
           </p>
-          <Link href="/Cars">
+          <Link href="/cars">
             <button className="bg-red-600 hover:bg-red-700 text-white text-lg font-semibold px-8 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-red-600/40 animate-slideUp delay-300">
               Book Now
             </button>
           </Link>
         </div>
 
-        {/* Optional subtle overlay gradient */}
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/40"></div>
       </section>
 
@@ -44,12 +47,12 @@ export default function Home() {
   className="bg-gradient-to-b from-zinc-900 to-black text-gray-200 py-20 px-6 sm:px-12 text-center"
 >
   <div className="max-w-6xl mx-auto animate-fadeInUp">
-    {/* Heading */}
+    
     <h2 className="text-4xl sm:text-5xl font-extrabold text-red-500 mb-6">
       About Rent-A-Car
     </h2>
 
-    {/* Description */}
+    
     <p className="text-lg sm:text-xl text-gray-300 leading-relaxed mb-6">
       At <span className="text-red-500 font-semibold">Rent-A-Car</span>, we believe that every journey
       should be as enjoyable as the destination. That’s why we provide vehicles that are
@@ -59,10 +62,16 @@ export default function Home() {
       confidence and peace of mind.
     </p>
 
+
+
     <p className="text-lg sm:text-xl text-gray-400 leading-relaxed mb-12">
       Whether you’re traveling for business or leisure, our modern fleet and professional team
       are here to make your rental experience smooth, simple, and stress-free.
     </p>
+
+
+
+
 
     {/* Services Section */}
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
@@ -95,23 +104,8 @@ export default function Home() {
     </div>
   </div>
 
-  {/* Animation */}
-  <style jsx>{`
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .animate-fadeInUp {
-      animation: fadeInUp 1.2s ease-out;
-    }
-  `}</style>
+ 
+ 
 </section>
 
 
