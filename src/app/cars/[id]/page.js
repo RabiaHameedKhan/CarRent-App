@@ -1,5 +1,6 @@
 "use client";
 import { useParams, useRouter } from "next/navigation";
+import Link from "next/link";
 
 const cars = [
   {
@@ -102,9 +103,11 @@ export default function CarDetails() {
           <p className="text-xl font-semibold text-red-400 mb-6">
             {car.price}
           </p>
-          <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-lg transition-all duration-300">
-            Book Now
-          </button>
+          <Link href="/booking">
+  <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-8 py-3 rounded-full mt-6 transition-all duration-300 shadow-md hover:shadow-red-600/40">
+    Book Now
+  </button>
+</Link>
         </div>
       </div>
     </section>
