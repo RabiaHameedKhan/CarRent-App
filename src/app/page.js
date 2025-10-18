@@ -109,6 +109,72 @@ export default function Home() {
 </section>
 
 
+{/* CTA Section */}
+<section className="relative py-24 bg-gradient-to-r from-zinc-800 via-zinc-900 to-black text-white text-center overflow-hidden">
+  {/* Background image with warm tone overlay */}
+  <div
+    className="absolute inset-0 bg-cover bg-center opacity-25"
+    style={{
+      backgroundImage: "url('/images/cta-bg.jpg')",
+    }}
+  ></div>
+  <div className="absolute inset-0 bg-gradient-to-b from-red-900/20 via-black/60 to-black/80"></div>
+
+  {/* Content */}
+  <div className="relative z-10 max-w-4xl mx-auto px-6 animate-fadeInUp">
+    <h2 className="text-4xl sm:text-5xl font-extrabold text-red-500 mb-6 drop-shadow-lg">
+      Ready to Hit the Road?
+    </h2>
+    <p className="text-lg sm:text-xl text-gray-200 mb-10">
+      Sign in now and enjoy affordable, reliable rentals — designed for your comfort and convenience.
+    </p>
+
+    <Link href="/login">
+      <button className="bg-red-600 hover:bg-red-700 text-white text-lg font-semibold px-10 py-4 rounded-full shadow-md hover:shadow-red-600/50 transition-all duration-300 animate-bounce-slow">
+        Login Now
+      </button>
+    </Link>
+  </div>
+
+  {/* Subtle red ambient glow effects */}
+  <div className="absolute top-16 left-12 w-32 h-32 bg-red-600/10 rounded-full blur-3xl"></div>
+  <div className="absolute bottom-12 right-16 w-40 h-40 bg-red-700/20 rounded-full blur-3xl"></div>
+
+  {/* Animations */}
+  <style jsx>{`
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fadeInUp {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes bounce-slow {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
+    }
+
+    .animate-bounce-slow {
+      animation: bounce-slow 2.5s infinite;
+    }
+  `}</style>
+</section>
+
+
+
+
     </>
   );
 }
