@@ -26,7 +26,7 @@ const Footer = () => {
             <li><Link href="/" className="hover:text-[#E63946] transition">Home</Link></li>
             <li><Link href="/#about" className="hover:text-[#E63946] transition">About</Link></li>
             <li><Link href="/cars" className="hover:text-[#E63946] transition">Cars</Link></li>
-            <li><Link href="/login" className="hover:text-[#E63946] transition">Login</Link></li>
+            <li><Link href="/auth" className="hover:text-[#E63946] transition">Login</Link></li>
           </ul>
         </div>
 

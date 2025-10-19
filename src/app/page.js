@@ -129,7 +129,7 @@ export default function Home() {
       Sign in now and enjoy affordable, reliable rentals — designed for your comfort and convenience.
     </p>
 
-    <Link href="/login">
+    <Link href="/auth">
       <button className="bg-red-600 hover:bg-red-700 text-white text-lg font-semibold px-10 py-4 rounded-full shadow-md hover:shadow-red-600/50 transition-all duration-300 animate-bounce-slow">
         Login Now
       </button>
